@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariah's Braid Spot - Luxury Hair Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pastel-pink': '#F8E8F0',
+                        'soft-pink': '#F0D0E0',
+                        'accent-pink': '#E8B4CB'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        .font-luxury { font-family: 'Playfair Display', serif; }
+        .font-modern { font-family: 'Inter', sans-serif; }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .luxury-shadow {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body class="font-modern bg-black text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="font-luxury text-2xl font-bold text-pastel-pink">
+                    Mariah's Braid Spot
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <button onclick="showSection('home')" class="hover:text-pastel-pink transition-colors">Home</button>
+                    <button onclick="showSection('services')" class="hover:text-pastel-pink transition-colors">Services</button>
+                    <button onclick="showSection('booking')" class="hover:text-pastel-pink transition-colors">Book Now</button>
+                    <button onclick="showSection('shop')" class="hover:text-pastel-pink transition-colors">Shop</button>
+                    <button onclick="showSection('policies')" class="hover:text-pastel-pink transition-colors">Policies</button>
+                </div>
+                <button class="md:hidden text-pastel-pink" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-95 z-40 hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
+            <button onclick="showSection('home'); toggleMobileMenu()" class="hover:text-pastel-pink transition-colors">Home</button>
+            <button onclick="showSection('services'); toggleMobileMenu()" class="hover:text-pastel-pink transition-colors">Services</button>
+            <button onclick="showSection('booking'); toggleMobileMenu()" class="hover:text-pastel-pink transition-colors">Book Now</button>
+            <button onclick="showSection('shop'); toggleMobileMenu()" class="hover:text-pastel-pink transition-colors">Shop</button>
+            <button onclick="showSection('policies'); toggleMobileMenu()" class="hover:text-pastel-pink transition-colors">Policies</button>
+        </div>
+    </div>
+
+    <!-- Home Section -->
+    <section id="home" class="min-h-screen gradient-bg flex items-center">
+        <div class="max-w-7xl mx-auto px-6 py-20">
+            <div class="text-center">
+                <h1 class="font-luxury text-6xl md:text-8xl font-bold mb-6 text-pastel-pink">
+                    Mariah's Braid Spot
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
+                    Experience luxury hair artistry with our premium braiding, locs, and weave services. 
+                    Where elegance meets expertise.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="showSection('booking')" class="bg-pastel-pink text-black px-8 py-4 rounded-lg font-semibold hover:bg-soft-pink transition-colors luxury-shadow hover-lift">
+                        Book Appointment
+                    </button>
+                    <button onclick="showSection('services')" class="border-2 border-pastel-pink text-pastel-pink px-8 py-4 rounded-lg font-semibold hover:bg-pastel-pink hover:text-black transition-colors">
+                        View Services
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="hidden min-h-screen py-20 bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="font-luxury text-5xl font-bold text-center mb-16 text-pastel-pink">Our Services</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl luxury-shadow hover-lift">
+                    <h3 class="font-luxury text-2xl font-semibold mb-4 text-pastel-pink">Braids</h3>
+                    <p class="text-gray-300 mb-4">Box braids, cornrows, French braids, and custom protective styles.</p>
+                    <p class="text-pastel-pink font-semibold">Starting at $80</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl luxury-shadow hover-lift">
+                    <h3 class="font-luxury text-2xl font-semibold mb-4 text-pastel-pink">Twists</h3>
+                    <p class="text-gray-300 mb-4">Senegalese twists, passion twists, and Marley twists.</p>
+                    <p class="text-pastel-pink font-semibold">Starting at $90</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl luxury-shadow hover-lift">
+                    <h3 class="font-luxury text-2xl font-semibold mb-4 text-pastel-pink">Loc Services</h3>
+                    <p class="text-gray-300 mb-4">Loc maintenance, retwists, and loc styling.</p>
+                    <p class="text-pastel-pink font-semibold">Starting at $60</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl luxury-shadow hover-lift">
+                    <h3 class="font-luxury text-2xl font-semibold mb-4 text-pastel-pink">Misc Braid Services</h3>
+                    <p class="text-gray-300 mb-4">Goddess braids, feed-in braids, and specialty styles.</p>
+                    <p class="text-pastel-pink font-semibold">Starting at $70</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl luxury-shadow hover-lift">
+                    <h3 class="font-luxury text-2xl font-semibold mb-4 text-pastel-pink">Weaves</h3>
+                    <p class="text-gray-300 mb-4">Sew-ins, quick weaves, and custom installations.</p>
+                    <p class="text-pastel-pink font-semibold">Starting at $120</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl luxury-shadow hover-lift">
+                    <h3 class="font-luxury text-2xl font-semibold mb-4 text-pastel-pink">Consultations</h3>
+                    <p class="text-gray-300 mb-4">Hair health assessments and style recommendations.</p>
+                    <p class="text-pastel-pink font-semibold">$25</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="hidden min-h-screen py-20 bg-black">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-luxury text-5xl font-bold text-center mb-16 text-pastel-pink">Book Your Appointment</h2>
+            
+            <!-- Policy Agreement -->
+            <div id="policyAgreement" class="bg-white bg-opacity-10 p-8 rounded-xl luxury-shadow mb-8">
+                <h3 class="font-luxury text-2xl font-semibold mb-4 text-pastel-pink">Please Review Our Policies</h3>
+                <div class="max-h-60 overflow-y-auto text-gray-300 mb-6 space-y-3">
+                    <p><strong>Cancellation Policy:</strong> 24-hour notice required for cancellations. Same-day cancellations will be charged 50% of service fee.</p>
+                    <p><strong>Rescheduling:</strong> Appointments may be rescheduled up to 24 hours in advance at no charge.</p>
+                    <p><strong>Late Arrivals:</strong> Clients arriving more than 15 minutes late may need to reschedule. A $25 late fee applies.</p>
+                    <p><strong>No Call/No Show:</strong> Full service charge applies for missed appointments without notice.</p>
+                    <p><strong>Payment:</strong> Payment is due at time of service. We accept cash, card, and digital payments.</p>
+                    <p><strong>Hair Preparation:</strong> Please arrive with clean, detangled hair unless otherwise specified.</p>
+                </div>
+                <label class="flex items-center space-x-3">
+                    <input type="checkbox" id="agreeToPolicy" class="w-5 h-5 text-pastel-pink bg-transparent border-2 border-pastel-pink rounded focus:ring-pastel-pink">
+                    <span class="text-white">I agree to the above policies and terms</span>
+                </label>
+            </div>
+
+            <!-- Booking Form -->
+            <div id="bookingForm" class="bg-white bg-opacity-10 p-8 rounded-xl luxury-shadow opacity-50 pointer-events-none">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-pastel-pink font-semibold mb-2">Full Name</label>
+                        <input type="text" class="w-full p-3 bg-black border border-pastel-pink rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-pastel-pink">
+                    </div>
+                    <div>
+                        <label class="block text-pastel-pink font-semibold mb-2">Phone Number</label>
+                        <input type="tel" class="w-full p-3 bg-black border border-pastel-pink rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-pastel-pink">
+                    </div>
+                    <div>
+                        <label class="block text-pastel-pink font-semibold mb-2">Email</label>
+                        <input type="email" class="w-full p-3 bg-black border border-pastel-pink rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-pastel-pink">
+                    </div>
+                    <div>
+                        <label class="block text-pastel-pink font-semibold mb-2">Service</label>
+                        <select class="w-full p-3 bg-black border border-pastel-pink rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-pastel-pink">
+                            <option>Select a service</option>
+                            <option>Braids</option>
+                            <option>Twists</option>
+                            <option>Loc Services</option>
+                            <option>Misc Braid Services</option>
+                            <option>Weaves</option>
+                            <option>Consultation</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-pastel-pink font-semibold mb-2">Preferred Date</label>
+                        <input type="date" class="w-full p-3 bg-black border border-pastel-pink rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-pastel-pink">
+                    </div>
+                    <div>
+                        <label class="block text-pastel-pink font-semibold mb-2">Preferred Time</label>
+                        <select class="w-full p-3 bg-black border border-pastel-pink rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-pastel-pink">
+                            <option>Select time</option>
+                            <option>9:00 AM</option>
+                            <option>10:00 AM</option>
+                            <option>11:00 AM</option>
+                            <option>12:00 PM</option>
+                            <option>1:00 PM</option>
+                            <option>2:00 PM</option>
+                            <option>3:00 PM</option>
+                            <option>4:00 PM</option>
+                            <option>5:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <label class="block text-pastel-pink font-semibold mb-2">Special Requests or Notes</label>
+                    <textarea rows="4" class="w-full p-3 bg-black border border-pastel-pink rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-pastel-pink" placeholder="Any specific requests, hair length, or additional information..."></textarea>
+                </div>
+                <button onclick="submitBooking()" class="w-full mt-6 bg-pastel-pink text-black py-4 rounded-lg font-semibold hover:bg-soft-pink transition-colors luxury-shadow">
+                    Submit Booking Request
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="hidden min-h-screen py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="font-luxury text-5xl font-bold text-center mb-16 text-pastel-pink">Shop Products</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white bg-opacity-10 p-6 rounded-xl luxury-shadow hover-lift">
+                    <div class="h-48 bg-gradient-to-br from-pastel-pink to-soft-pink rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-4xl">🧴</span>
+                    </div>
+                    <h3 class="font-luxury text-xl font-semibold mb-2 text-pastel-pink">Premium Hair Oil</h3>
+                    <p class="text-gray-300 mb-4">Nourishing blend for healthy hair and scalp</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-pastel-pink font-bold text-xl">$25</span>
+                        <button onclick="addToCart('Premium Hair Oil', 25)" class="bg-pastel-pink text-black px-4 py-2 rounded-lg font-semibold hover:bg-soft-pink transition-colors">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-white bg-opacity-10 p-6 rounded-xl luxury-shadow hover-lift">
+                    <div class="h-48 bg-gradient-to-br from-pastel-pink to-soft-pink rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-4xl">✨</span>
+                    </div>
+                    <h3 class="font-luxury text-xl font-semibold mb-2 text-pastel-pink">Edge Control</h3>
+                    <p class="text-gray-300 mb-4">Long-lasting hold for perfect edges</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-pastel-pink font-bold text-xl">$15</span>
+                        <button onclick="addToCart('Edge Control', 15)" class="bg-pastel-pink text-black px-4 py-2 rounded-lg font-semibold hover:bg-soft-pink transition-colors">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-white bg-opacity-10 p-6 rounded-xl luxury-shadow hover-lift">
+                    <div class="h-48 bg-gradient-to-br from-pastel-pink to-soft-pink rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-4xl">🧴</span>
+                    </div>
+                    <h3 class="font-luxury text-xl font-semibold mb-2 text-pastel-pink">Moisturizing Shampoo</h3>
+                    <p class="text-gray-300 mb-4">Gentle cleansing for all hair types</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-pastel-pink font-bold text-xl">$20</span>
+                        <button onclick="addToCart('Moisturizing Shampoo', 20)" class="bg-pastel-pink text-black px-4 py-2 rounded-lg font-semibold hover:bg-soft-pink transition-colors">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-white bg-opacity-10 p-6 rounded-xl luxury-shadow hover-lift">
+                    <div class="h-48 bg-gradient-to-br from-pastel-pink to-soft-pink rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-4xl">💆‍♀️</span>
+                    </div>
+                    <h3 class="font-luxury text-xl font-semibold mb-2 text-pastel-pink">Scalp Treatment</h3>
+                    <p class="text-gray-300 mb-4">Therapeutic treatment for healthy scalp</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-pastel-pink font-bold text-xl">$30</span>
+                        <button onclick="addToCart('Scalp Treatment', 30)" class="bg-pastel-pink text-black px-4 py-2 rounded-lg font-semibold hover:bg-soft-pink transition-colors">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-white bg-opacity-10 p-6 rounded-xl luxury-shadow hover-lift">
+                    <div class="h-48 bg-gradient-to-br from-pastel-pink to-soft-pink rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-4xl">🎀</span>
+                    </div>
+                    <h3 class="font-luxury text-xl font-semibold mb-2 text-pastel-pink">Silk Hair Ties</h3>
+                    <p class="text-gray-300 mb-4">Gentle on hair, prevents breakage</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-pastel-pink font-bold text-xl">$12</span>
+                        <button onclick="addToCart('Silk Hair Ties', 12)" class="bg-pastel-pink text-black px-4 py-2 rounded-lg font-semibold hover:bg-soft-pink transition-colors">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-white bg-opacity-10 p-6 rounded-xl luxury-shadow hover-lift">
+                    <div class="h-48 bg-gradient-to-br from-pastel-pink to-soft-pink rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-4xl">🧴</span>
+                    </div>
+                    <h3 class="font-luxury text-xl font-semibold mb-2 text-pastel-pink">Leave-in Conditioner</h3>
+                    <p class="text-gray-300 mb-4">Daily moisture and protection</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-pastel-pink font-bold text-xl">$18</span>
+                        <button onclick="addToCart('Leave-in Conditioner', 18)" class="bg-pastel-pink text-black px-4 py-2 rounded-lg font-semibold hover:bg-soft-pink transition-colors">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cart -->
+            <div id="cart" class="mt-16 bg-white bg-opacity-10 p-8 rounded-xl luxury-shadow">
+                <h3 class="font-luxury text-2xl font-semibold mb-4 text-pastel-pink">Shopping Cart</h3>
+                <div id="cartItems" class="space-y-3 mb-6">
+                    <p class="text-gray-400">Your cart is empty</p>
+                </div>
+                <div class="flex justify-between items-center pt-4 border-t border-pastel-pink">
+                    <span class="font-luxury text-xl text-pastel-pink">Total: $<span id="cartTotal">0</span></span>
+                    <button onclick="checkout()" class="bg-pastel-pink text-black px-6 py-3 rounded-lg font-semibold hover:bg-soft-pink transition-colors" disabled id="checkoutBtn">
+                        Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Policies Section -->
+    <section id="policies" class="hidden min-h-screen py-20 bg-black">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-luxury text-5xl font-bold text-center mb-16 text-pastel-pink">Salon Policies</h2>
+            <div class="bg-white bg-opacity-10 p-8 rounded-xl luxury-shadow space-y-8">
+                
+                <div>
+                    <h3 class="font-luxury text-2xl font-semibold mb-4 text-pastel-pink">Appointment Policies</h3>
+                    <div class="space-y-4 text-gray-300">
+                        <p><strong>Booking:</strong> All appointments must be booked in advance. Walk-ins are welcome but subject to availability.</p>
+                        <p><strong>Confirmation:</strong> Please confirm your appointment 24 hours in advance via text or call.</p>
+                        <p><strong>Arrival:</strong> Please arrive 10 minutes early for your appointment to complete any necessary paperwork.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-luxury text-2xl font-semibold mb-4 text-pastel-pink">Cancellation & Rescheduling</h3>
+                    <div class="space-y-4 text-gray-300">
+                        <p><strong>Cancellation Notice:</strong> 24-hour notice is required for all cancellations. Cancellations made with less than 24 hours notice will be charged 50% of the service fee.</p>
+                        <p><strong>Rescheduling:</strong> Appointments may be rescheduled up to 24 hours in advance at no additional charge. Same-day rescheduling requests are subject to availability and may incur fees.</p>
+                        <p><strong>Emergency Situations:</strong> We understand emergencies happen. Please contact us as soon as possible, and we'll work with you on a case-by-case basis.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-luxury text-2xl font-semibold mb-4 text-pastel-pink">Late Arrivals & No-Shows</h3>
+                    <div class="space-y-4 text-gray-300">
+                        <p><strong>Late Arrivals:</strong> Clients arriving more than 15 minutes late may need to reschedule their appointment. A $25 late fee will be applied to appointments that can still be accommodated.</p>
+                        <p><strong>No Call/No Show:</strong> Clients who miss their appointment without prior notice will be charged the full service fee and may be required to prepay for future appointments.</p>
+                        <p><strong>Repeat Offenses:</strong> Multiple late arrivals or no-shows may result in a requirement for advance payment or appointment deposits.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-luxury text-2xl font-semibold mb-4 text-pastel-pink">Payment Policies</h3>
+                    <div class="space-y-4 text-gray-300">
+                        <p><strong>Payment Due:</strong> Payment is due in full at the time of service completion.</p>
+                        <p><strong>Accepted Methods:</strong> We accept cash, credit/debit cards, Venmo, CashApp, and Zelle.</p>
+                        <p><strong>Gratuity:</strong> Tips are appreciated but not required. Standard gratuity is 15-20% of service cost.</p>
+                        <p><strong>Deposits:</strong> Some services may require a deposit to secure your appointment, which will be applied to your final bill.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-luxury text-2xl font-semibold mb-4 text-pastel-pink">Hair Care & Preparation</h3>
+                    <div class="space-y-4 text-gray-300">
+                        <p><strong>Hair Preparation:</strong> Please arrive with clean, detangled hair unless otherwise specified for your service.</p>
+                        <p><strong>Hair Products:</strong> We use professional-grade products. If you have allergies or sensitivities, please inform us before your appointment.</p>
+                        <p><strong>Hair Extensions:</strong> If bringing your own hair, please ensure it's high quality and the correct texture/color. We are not responsible for poor-quality extensions.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-luxury text-2xl font-semibold mb-4 text-pastel-pink">Salon Etiquette</h3>
+                    <div class="space-y-4 text-gray-300">
+                        <p><strong>Children:</strong> Children are welcome but must be supervised at all times. We are not responsible for childcare.</p>
+                        <p><strong>Phone Use:</strong> Please keep phone conversations brief and at a low volume out of respect for other clients.</p>
+                        <p><strong>Food & Drinks:</strong> Light snacks and water are permitted. Please dispose of trash properly.</p>
+                        <p><strong>Respect:</strong> We maintain a professional, respectful environment. Inappropriate behavior will not be tolerated.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-luxury text-2xl font-semibold mb-4 text-pastel-pink">Service Guarantee</h3>
+                    <div class="space-y-4 text-gray-300">
+                        <p><strong>Satisfaction:</strong> Your satisfaction is our priority. If you're not happy with your service, please let us know within 48 hours.</p>
+                        <p><strong>Touch-ups:</strong> Minor touch-ups within 7 days of service are complimentary.</p>
+                        <p><strong>Damage Policy:</strong> We are not responsible for hair damage due to previous chemical treatments, poor hair condition, or failure to follow aftercare instructions.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
+        <div class="bg-white bg-opacity-10 p-8 rounded-xl luxury-shadow max-w-md mx-4 text-center">
+            <div class="text-6xl mb-4">✨</div>
+            <h3 class="font-luxury text-2xl font-semibold mb-4 text-pastel-pink">Success!</h3>
+            <p id="successMessage" class="text-gray-300 mb-6"></p>
+            <button onclick="closeModal()" class="bg-pastel-pink text-black px-6 py-3 rounded-lg font-semibold hover:bg-soft-pink transition-colors">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Navigation
+        function showSection(sectionId) {
+            const sections = ['home', 'services', 'booking', 'shop', 'policies'];
+            sections.forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Booking functionality
+        document.getElementById('agreeToPolicy').addEventListener('change', function() {
+            const form = document.getElementById('bookingForm');
+            if (this.checked) {
+                form.classList.remove('opacity-50', 'pointer-events-none');
+            } else {
+                form.classList.add('opacity-50', 'pointer-events-none');
+            }
+        });
+
+        function submitBooking() {
+            const form = document.getElementById('bookingForm');
+            const inputs = form.querySelectorAll('input, select, textarea');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                if (input.hasAttribute('required') && !input.value.trim()) {
+                    isValid = false;
+                }
+            });
+
+            if (isValid) {
+                showSuccessModal('Booking request submitted successfully! We\'ll contact you within 24 hours to confirm your appointment.');
+                // Reset form
+                inputs.forEach(input => {
+                    if (input.type !== 'checkbox') input.value = '';
+                });
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        }
+
+        // Shopping cart functionality
+        let cart = [];
+        let cartTotal = 0;
+
+        function addToCart(productName, price) {
+            const existingItem = cart.find(item => item.name === productName);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name: productName, price: price, quantity: 1 });
+            }
+            
+            updateCartDisplay();
+            showSuccessModal(`${productName} added to cart!`);
+        }
+
+        function removeFromCart(productName) {
+            cart = cart.filter(item => item.name !== productName);
+            updateCartDisplay();
+        }
+
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cartItems');
+            const cartTotalElement = document.getElementById('cartTotal');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="text-gray-400">Your cart is empty</p>';
+                cartTotal = 0;
+                checkoutBtn.disabled = true;
+                checkoutBtn.classList.add('opacity-50');
+            } else {
+                cartItems.innerHTML = cart.map(item => `
+                    <div class="flex justify-between items-center py-2 border-b border-gray-600">
+                        <span class="text-white">${item.name} x${item.quantity}</span>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-pastel-pink">$${item.price * item.quantity}</span>
+                            <button onclick="removeFromCart('${item.name}')" class="text-red-400 hover:text-red-300">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+                
+                cartTotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+                checkoutBtn.disabled = false;
+                checkoutBtn.classList.remove('opacity-50');
+            }
+            
+            cartTotalElement.textContent = cartTotal;
+        }
+
+        function checkout() {
+            if (cart.length > 0) {
+                showSuccessModal(`Order placed successfully! Total: $${cartTotal}. You'll receive a confirmation email shortly.`);
+                cart = [];
+                updateCartDisplay();
+            }
+        }
+
+        // Modal functionality
+        function showSuccessModal(message) {
+            document.getElementById('successMessage').textContent = message;
+            document.getElementById('successModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').classList.add('hidden');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('successModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Initialize
+        updateCartDisplay();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97c2faa76497114d',t:'MTc1NzM4MjA0Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
